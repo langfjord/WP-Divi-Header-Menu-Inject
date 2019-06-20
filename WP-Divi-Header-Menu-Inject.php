@@ -156,6 +156,7 @@ if( is_admin() )
 
 /* GET LAYOUT ID */
 $wdhmioptions = get_option('my_option_name');
+$wdhmi_id_number = $wdhmioptions['id_number'];
 // ID VALUE IN $wdhmioptions['id_number'];
 
 /* Top bar replacement NOT WORKING */
@@ -165,10 +166,10 @@ $wdhmioptions = get_option('my_option_name');
 //}
 
 /* Below menu injection */
-if(is_numeric($wdhmioptions['id_number'])){
+if(is_numeric($wdhmi_id_number)){
  add_action( 'et_before_main_content', 'before_content_layout' );
- function before_content_layout($id = $wdhmioptions['id_number']) {
-  $wdhmshortcode='[et_pb_section global_module="'.$id.'"][/et_pb_section]';
+ function before_content_layout($wdhmi_id_number) {
+  $wdhmshortcode='[et_pb_section global_module="'.$wdhmi_id_number.'"][/et_pb_section]';
   echo do_shortcode($wdhmshortcode);
  }
 }
