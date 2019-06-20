@@ -161,7 +161,8 @@ if( is_admin() )
 //}
 
 /* Below menu injection */
-print_r(get_option('my_option_name'));
+$wdhmioptions = get_option('my_option_name');
+echo $wdhmioptions['id_number'];
 add_action( 'et_before_main_content', 'before_content_layout' );
 function before_content_layout() {
  echo do_shortcode('[et_pb_section global_module=3066][/et_pb_section]');
