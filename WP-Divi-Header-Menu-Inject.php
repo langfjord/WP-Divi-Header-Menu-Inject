@@ -1,6 +1,6 @@
 <?php
 /**
-* Plugin Name: Wordpress Plugin Starter
+* Plugin Name: WP Divi Header Menu Inject
 * Description: This plugin contains all of the custom functions.
 * Author: Langfjord
 * Version: 0.1
@@ -17,5 +17,15 @@ function mp_custom_header_above( $main_header ) {
 add_filter( 'et_html_main_header', 'mp_custom_header_above' );
 
 /* PLUGIN CODE END */
+
+
+
+/*
+
+https://www.elegantthemes.com/documentation/developers/hooks/divi-template-hooks/
+
+*/
+
+
 
 ?>
