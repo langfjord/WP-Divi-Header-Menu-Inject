@@ -168,7 +168,7 @@ $wdhmi_id_number = $wdhmioptions['id_number'];
 /* Below menu injection */
 if(is_numeric($wdhmi_id_number)){
  add_action( 'et_before_main_content', 'before_content_layout' );
- function before_content_layout($wdhmi_id_number) {
+ function before_content_layout() use($wdhmi_id_number) {
   $wdhmshortcode='[et_pb_section global_module="'.$wdhmi_id_number.'"][/et_pb_section]';
   echo do_shortcode("[et_pb_section global_module=3066$wdhmi_id_number][/et_pb_section]");
  }
