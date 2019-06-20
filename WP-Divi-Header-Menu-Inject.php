@@ -154,6 +154,10 @@ if( is_admin() )
 
 /* PLUGIN CODE START */
 
+/* GET LAYOUT ID */
+$wdhmioptions = get_option('my_option_name');
+// ID VALUE IN $wdhmioptions['id_number'];
+
 /* Top bar replacement NOT WORKING */
 //add_filter( 'et_html_top_header', 'top_header_layout' );
 //function top_header_layout() {
@@ -161,11 +165,11 @@ if( is_admin() )
 //}
 
 /* Below menu injection */
-$wdhmioptions = get_option('my_option_name');
-echo $wdhmioptions['id_number'];
-add_action( 'et_before_main_content', 'before_content_layout' );
-function before_content_layout() {
- echo do_shortcode('[et_pb_section global_module=3066][/et_pb_section]');
+if(is_numeric($wdhmioptions['id_number'])){
+ add_action( 'et_before_main_content', 'before_content_layout' );
+ function before_content_layout() {
+  echo do_shortcode('[et_pb_section global_module='.$wdhmioptions['id_number'].'][/et_pb_section]');
+ }
 }
 
 /* PLUGIN CODE END */
