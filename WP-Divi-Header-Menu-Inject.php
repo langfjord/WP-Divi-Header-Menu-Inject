@@ -170,7 +170,7 @@ if(is_numeric($wdhmi_id_number)){
  add_action( 'et_before_main_content', 'before_content_layout' );
  function before_content_layout($wdhmi_id_number) {
   $wdhmshortcode='[et_pb_section global_module="'.$wdhmi_id_number.'"][/et_pb_section]';
-  echo do_shortcode($wdhmshortcode);
+  echo do_shortcode("[et_pb_section global_module=$wdhmi_id_number][/et_pb_section]");
  }
 }
 
