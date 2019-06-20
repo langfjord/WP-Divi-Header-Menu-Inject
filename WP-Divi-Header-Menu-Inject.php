@@ -165,8 +165,7 @@ if( is_admin() )
  function before_content_layout() {
   $wdhmioptions = get_option('my_option_name');
   $wdhmi_id_number = $wdhmioptions['id_number'];
-  if(is_numeric($wdhmi_id_number)){
-    // $wdhmshortcode='[et_pb_section global_module="'.$wdhmi_id_number.'"][/et_pb_section]';
+  if(is_numeric($wdhmi_id_number) AND $wdhmi_id_number>0){
     echo do_shortcode("[et_pb_section global_module=$wdhmi_id_number][/et_pb_section]");
   }
  }
