@@ -168,7 +168,7 @@ $wdhmioptions = get_option('my_option_name');
 if(is_numeric($wdhmioptions['id_number'])){
  add_action( 'et_before_main_content', 'before_content_layout' );
  function before_content_layout() {
-  $wdhmshortcode="[et_pb_section global_module=".$wdhmioptions['id_number']."][/et_pb_section]";
+  $wdhmshortcode='[et_pb_section global_module="'.$wdhmioptions['id_number'].'"][/et_pb_section]';
   echo do_shortcode($wdhmshortcode);
  }
 }
