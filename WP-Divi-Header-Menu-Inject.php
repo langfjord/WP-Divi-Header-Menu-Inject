@@ -8,7 +8,7 @@
 
 /* PLUGIN CODE START */
 
-/* Top bar replacement */
+/* Top bar replacement NOT WORKING */
 add_filter( 'et_html_top_header', 'top_header_layout' );
 function top_header_layout() {
  return do_shortcode('[et_pb_section global_module=3066][/et_pb_section]');
