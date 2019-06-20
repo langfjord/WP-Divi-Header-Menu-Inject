@@ -21,38 +21,38 @@ $option = get_option('langfjord_moduleid');
 /**
  * custom option and settings
  */
-function wporg_settings_init() {
- // register a new setting for "wporg" page
- register_setting( 'wporg', 'wporg_options' );
+function wdhmi_settings_init() {
+ // register a new setting for "wdhmi" page
+ register_setting( 'wdhmi', 'wdhmi_options' );
  
- // register a new section in the "wporg" page
+ // register a new section in the "wdhmi" page
  add_settings_section(
- 'wporg_section_developers',
- __( 'The Matrix has you.', 'wporg' ),
- 'wporg_section_developers_cb',
- 'wporg'
+ 'wdhmi_section_developers',
+ __( 'The Matrix has you.', 'wdhmi' ),
+ 'wdhmi_section_developers_cb',
+ 'wdhmi'
  );
  
- // register a new field in the "wporg_section_developers" section, inside the "wporg" page
+ // register a new field in the "wdhmi_section_developers" section, inside the "wdhmi" page
  add_settings_field(
- 'wporg_field_pill', // as of WP 4.6 this value is used only internally
+ 'wdhmi_field_pill', // as of WP 4.6 this value is used only internally
  // use $args' label_for to populate the id inside the callback
- __( 'Pill', 'wporg' ),
- 'wporg_field_pill_cb',
- 'wporg',
- 'wporg_section_developers',
+ __( 'Pill', 'wdhmi' ),
+ 'wdhmi_field_pill_cb',
+ 'wdhmi',
+ 'wdhmi_section_developers',
  [
- 'label_for' => 'wporg_field_pill',
- 'class' => 'wporg_row',
- 'wporg_custom_data' => 'custom',
+ 'label_for' => 'wdhmi_field_pill',
+ 'class' => 'wdhmi_row',
+ 'wdhmi_custom_data' => 'custom',
  ]
  );
 }
  
 /**
- * register our wporg_settings_init to the admin_init action hook
+ * register our wdhmi_settings_init to the admin_init action hook
  */
-add_action( 'admin_init', 'wporg_settings_init' );
+add_action( 'admin_init', 'wdhmi_settings_init' );
  
 /**
  * custom option and settings:
@@ -64,9 +64,9 @@ add_action( 'admin_init', 'wporg_settings_init' );
 // section callbacks can accept an $args parameter, which is an array.
 // $args have the following keys defined: title, id, callback.
 // the values are defined at the add_settings_section() function.
-function wporg_section_developers_cb( $args ) {
+function wdhmi_section_developers_cb( $args ) {
  ?>
- <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e( 'Follow the white rabbit.', 'wporg' ); ?></p>
+ <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e( 'Find your Divi Layout ID and post it here.', 'wdhmi' ); ?></p>
  <?php
 }
  
@@ -78,42 +78,40 @@ function wporg_section_developers_cb( $args ) {
 // the "label_for" key value is used for the "for" attribute of the <label>.
 // the "class" key value is used for the "class" attribute of the <tr> containing the field.
 // you can add custom key value pairs to be used inside your callbacks.
-function wporg_field_pill_cb( $args ) {
+function wdhmi_field_pill_cb( $args ) {
  // get the value of the setting we've registered with register_setting()
- $options = get_option( 'wporg_options' );
+ $options = get_option( 'wdhmi_options' );
  // output the field
  ?>
  <select id="<?php echo esc_attr( $args['label_for'] ); ?>"
- data-custom="<?php echo esc_attr( $args['wporg_custom_data'] ); ?>"
- name="wporg_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
+ data-custom="<?php echo esc_attr( $args['wdhmi_custom_data'] ); ?>"
+ name="wdhmi_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
  >
  <option value="red" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'red', false ) ) : ( '' ); ?>>
- <?php esc_html_e( 'red pill', 'wporg' ); ?>
+ <?php esc_html_e( 'red pill', 'wdhmi' ); ?>
  </option>
  <option value="blue" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'blue', false ) ) : ( '' ); ?>>
- <?php esc_html_e( 'blue pill', 'wporg' ); ?>
+ <?php esc_html_e( 'blue pill', 'wdhmi' ); ?>
  </option>
  </select>
  <p class="description">
- <?php esc_html_e( 'You take the blue pill and the story ends. You wake in your bed and you believe whatever you want to believe.', 'wporg' ); ?>
+ <?php esc_html_e( 'Please check the url for correct ID number when you edit the Divi Layout', 'wdhmi' ); ?>
  </p>
- <p class="description">
- <?php esc_html_e( 'You take the red pill and you stay in Wonderland and I show you how deep the rabbit-hole goes.', 'wporg' ); ?>
- </p>
+
  <?php
 }
  
 /**
  * top level menu
  */
-function wporg_options_page() {
+function wdhmi_options_page() {
  // add top level menu page
  add_menu_page(
- 'WPOrg',
- 'WPOrg Options',
+ 'WDHMI',
+ 'WDHMI Options',
  'manage_options',
- 'wporg',
- 'wporg_options_page_html'
+ 'wdhmi',
+ 'wdhmi_options_page_html'
  );
 }
  
