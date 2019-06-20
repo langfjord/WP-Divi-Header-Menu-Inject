@@ -83,17 +83,8 @@ function wdhmi_field_pill_cb( $args ) {
  $options = get_option( 'wdhmi_options' );
  // output the field
  ?>
- <select id="<?php echo esc_attr( $args['label_for'] ); ?>"
- data-custom="<?php echo esc_attr( $args['wdhmi_custom_data'] ); ?>"
- name="wdhmi_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
- >
- <option value="red" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'red', false ) ) : ( '' ); ?>>
- <?php esc_html_e( 'red pill', 'wdhmi' ); ?>
- </option>
- <option value="blue" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'blue', false ) ) : ( '' ); ?>>
- <?php esc_html_e( 'blue pill', 'wdhmi' ); ?>
- </option>
- </select>
+ <input type="text" name="new_option_name" value="<?php echo esc_attr( get_option('wdhmi_custom_data') ); ?>
+ 
  <p class="description">
  <?php esc_html_e( 'Please check the url for correct ID number when you edit the Divi Layout', 'wdhmi' ); ?>
  </p>
